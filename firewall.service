@@ -1,0 +1,13 @@
+[Unit]
+Description=Own iptables rules
+ConditionPathExists=/usr/local/bin/firewall
+
+[Service]
+Environment="DEFAULT_CONF='/etc/default/firewall-config'"
+Type=oneshot
+ExecStart=/usr/local/bin/firewall start
+ExecStop=/usr/local/bin/firewall stop
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

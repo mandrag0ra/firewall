@@ -1,0 +1,48 @@
+## Uncomment rules name to apply
+## ! Take care to order !
+## TODO
+# Allow traffic from a withelist ip with ipset
+# OPENVPN() Personnalize private network
+# CLAMAV()
+# DOCKER Find some better rules
+
+# WHITELIST_FROM_IP4='192.168.1.100'
+WHITELIST_FROM_IP4=''
+WHITELIST_FROM_IP6=''
+
+## Basic ones
+FLUSH
+FORWARD
+LOCAL_ACCEPT
+ICMP
+# Allow dns queries
+DNS_BASIC
+NTP
+# Port 80 and 443
+# Be sure to allow http(s) output to be able to use apt-get
+HTTP_OUTPUT
+#HTTP_INPUT
+
+## Other useful ones
+#ALLOW_SSH
+#ALLOW_FTP
+#SMTP_OUTPUT
+#SMTP_INPUT
+#POP3
+#IMAP
+#OPENVPN
+#FLOOD
+#PROXMOX_WEB
+#LOG
+#DNS_OPENNIC
+#DOCKER
+
+## Block everything else
+# !! BECAREFUL !!
+# Be sure you have withelist your IP or
+# YOU WILL NOT BE ABLE TO CONNECT TO YOUR SERVER !
+#BLOCK_SSH
+#BLOCK
+
+## If fail2ban is running, it's "better" to restart it
+#FAIL2BAN
